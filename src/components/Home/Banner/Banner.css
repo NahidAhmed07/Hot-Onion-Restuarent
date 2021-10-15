@@ -1,0 +1,8 @@
+.banner-bg{
+  height: 100vh !important;
+  background-image: url("../../../images/bannerbackground.png");
+  background-position:contain;
+  background-size:cover;
+  background-repeat: no-repeat;
+  
+}

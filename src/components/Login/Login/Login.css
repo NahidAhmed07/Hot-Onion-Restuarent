@@ -1,0 +1,19 @@
+
+.logo-img{
+  width: 250px;
+  margin-bottom: 40px;
+}
+
+.googleSignIn, .googleSignIn~p{
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.googleSignIn:hover{
+  color: rgb(80, 133, 0);
+}
+
+.googleSignIn~p:hover{
+  color: rgb(80, 133, 0);
+
+}

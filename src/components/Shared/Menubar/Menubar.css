@@ -1,0 +1,26 @@
+
+.nav-item {
+  margin-right: 20px;
+}
+
+.nav-item.login{
+  font-size: 18px;
+  font-weight:500;
+
+
+}
+
+.nav-item button, .btn-red{
+  border: none;
+  padding: 10px 20px;
+  background: #F91944;
+  color:white;
+  font-weight: 500;
+  border-radius: 50px;
+  transition: 0.5s;
+}
+
+.nav-item button:hover{
+  background: #d11137;
+
+}
