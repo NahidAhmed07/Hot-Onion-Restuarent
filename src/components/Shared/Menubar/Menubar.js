@@ -11,8 +11,8 @@ import './Menubar.css'
 const Menubar = () => {
   const { cartItems } = useCartData()
   const { user, logOut } = useAuth();
-  console.log(cartItems);
-  const foodQuantity = cartItems.reduce((pre, food)=> pre + food.quantity, 0)
+  
+  // const foodQuantity = cartItems.reduce((pre, food)=> pre + food.quantity, 0)
   return (
     <div>
       <Navbar
@@ -40,7 +40,7 @@ const Menubar = () => {
             >
               <img width="30px" src={cartIcon} alt=""></img>
               <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                {foodQuantity}
+                {cartItems.length}
               </span>
             </Nav.Link>
             <Nav.Link className="nav-item login" as={NavLink} to="/login">

@@ -21,7 +21,7 @@ const useCart = () => {
       const findFoods = [];
       for (const key in storeCart) {
         
-        const findFood = allFoods.find(food => food.id = key);
+        const findFood = allFoods.find(food => food.id === key);
         if (findFood) {
           findFood.quantity = storeCart[key];
           findFoods.push(findFood);
@@ -40,26 +40,28 @@ const useCart = () => {
   const handleMinus = (food) => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
-      const findFood = cartItems.find((item) => (item.id = food.id));
-      if (findFood) {
-        const unmatched = cartItems.filter((item) => item.id !== findFood.id);
-        findFood.quantity -= 1;
-        addToDb(findFood.id, false);
-        setCartItems([...unmatched, findFood]);
-      }
+      addToDb(food.id, false);
+      // const findFood = cartItems.find((item) => (item.id = food.id));
+      // if (findFood) {
+      //   const unmatched = cartItems.filter((item) => item.id !== findFood.id);
+      //   findFood.quantity -= 1;
+        
+      //   setCartItems([...unmatched, findFood]);
+      // }
     }
   };
 
   const handlePlus = (food) => {
     if (quantity <= 9) {
       setQuantity(quantity + 1);
-      const findFood = cartItems.find((item) => (item.id = food.id));
-      if (findFood) {
-        const unmatched = cartItems.filter((item) => item.id !== findFood.id);
-        findFood.quantity += 1;
-        addToDb(findFood.id);
-        setCartItems([...unmatched, findFood]);
-      }
+      addToDb(food.id);
+      // const findFood = cartItems.find((item) => (item.id = food.id));
+      // if (findFood) {
+      //   const unmatched = cartItems.filter((item) => item.id !== findFood.id);
+      //   findFood.quantity += 1;
+        
+      //   setCartItems([...unmatched, findFood]);
+      // }
     }
   };
 

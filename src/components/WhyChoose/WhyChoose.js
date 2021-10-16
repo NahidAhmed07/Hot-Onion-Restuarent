@@ -10,15 +10,17 @@ const WhyChoose = () => {
   return (
     <div className="container-fluid my-5 text-start">
       <Container>
-        <div className="text-start">
-          <h1>Why You choose us</h1>
-          <p className="w-50">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet ipsa
-            nemo quaerat obcaecati, modi qui sit saepe at dignissimos error
-            beatae et! Velit impedit quae quo necessitatibus animi debitis
-            porro!
-          </p>
-        </div>
+        <Row className="text-start">
+          <Col xs={12} md={8} lg={6}>
+            <h1>Why You choose us</h1>
+            <p className="">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet
+              ipsa nemo quaerat obcaecati, modi qui sit saepe at dignissimos
+              error beatae et! Velit impedit quae quo necessitatibus animi
+              debitis porro!
+            </p>
+          </Col>
+        </Row>
 
         <Row xs={1} md={2} lg={3} className="g-lg-5 g-3 my-4">
           <Col>
@@ -28,15 +30,15 @@ const WhyChoose = () => {
               </div>
               <div className="d-flex my-3 gap-4">
                 <div>
-                  <i class="fas fa-truck "></i>
+                  <i className="fas fa-truck "></i>
                 </div>
                 <div>
                   <h6>Fast Delevery</h6>
                   <small>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     Molestias, obcaecati eum! Corporis numquam hic optio autem
-                   
-                  </small><br />
+                  </small>
+                  <br />
                   <NavLink to="/">see more</NavLink>
                 </div>
               </div>

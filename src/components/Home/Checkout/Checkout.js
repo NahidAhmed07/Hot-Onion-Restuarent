@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import useAuth from "../../../hooks/useAuth";
 import useCartData from "../../../hooks/useCartData";
+import CheckoutItem from "../CheckoutItem/CheckoutItem";
 import FoodItem from "../FoodItem/FoodItem";
 
 const Checkout = () => {
@@ -10,7 +11,7 @@ const Checkout = () => {
   console.log(cartItems);
  
   return (
-    <div id="checkout">
+    <Container fluid id="checkout">
       <br />
 
       <Container className="my-5 ">
@@ -74,40 +75,14 @@ const Checkout = () => {
             </div>
 
             <div>
-              {cartItems.map((food) => (
-                <div className="d-flex">
-                  <img
-                    style={{ width: "180px", height: "180px" }}
-                    src={food.img}
-                    alt=""
-                  />
-                  <div className="my-4 text-start ms-2">
-                    <strong>
-                      <small>{food.title.slice(0, 15)}</small>
-                    </strong>
-                    <h5 className="text-danger my-3">$ {food.price}</h5>
-                    <small>{food.cat}</small>
-                  </div>
-                  <div className="d-flex align-items-center ms-4">
-                    <h5 className="quantity">
-                      <span onClick={()=> handleMinus(food)} className="minus">
-                        <i className="fas fa-minus"></i>
-                      </span>
-                      <span className="digit">{quantity}</span>
-                      <span onClick={()=> handlePlus(food)} className="plus">
-                        <i className="fas fa-plus"></i>
-                      </span>
-                    </h5>
-                  </div>
-                </div>
-              ))}
+              {cartItems.map((food) => <CheckoutItem food={food} key={food.id} ></CheckoutItem>)}
             </div>
 
-            <h6></h6>
+            
           </Col>
         </Row>
       </Container>
-    </div>
+    </Container>
   );
 };
 

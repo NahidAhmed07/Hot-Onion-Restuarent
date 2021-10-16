@@ -13,20 +13,38 @@ const FoodDetails = () => {
   const [imgIndex, setImgIndex] = useState(0);
   const history = useHistory();
 
-  const { cartItems, setCartItems, handleMinus,handlePlus, quantity, setQuantity} = useCartData();
+  const { cartItems, setCartItems, handleMinus, handlePlus, quantity, setQuantity } = useCartData();
+  
+  const handleExists = (exists) => {
+    setFood(exists);
+    setQuantity(exists.quantity)
+  }
+    
+
 
   useEffect(() => {
-    fetch(
-      `https://raw.githubusercontent.com/NahidAhmed07/api/main/Onion-resturent/${foodCat}.json`
-    ).then(res => res.json())
-      .then(data => {
-        setFoods(data);
-        const findFood = data.find(food => food.id === foodId);
-        setFood(findFood);
 
-      });
+    const exists = cartItems.find((food) => food.id === foodId);
     
+    !exists ? (
+      fetch(
+        `https://raw.githubusercontent.com/NahidAhmed07/api/main/Onion-resturent/${foodCat}.json`
+      ).then(res => res.json())
+        .then(data => {
+          setFoods(data);
+          const findFood = data.find(food => food.id === foodId);
+          setFood(findFood);
+          setQuantity(findFood.quantity || 1);
+        })
+    ) : (
+      handleExists(exists)
+    );
+      
   }, [])
+  
+
+
+  
   
   
 
@@ -64,7 +82,7 @@ const FoodDetails = () => {
   
 
   return (
-    <div className='container-fluid'>
+    <div className="container-fluid">
       <Container className="my-5">
         <Row xs={1} md={2} className="g-5">
           <Col>
@@ -87,11 +105,11 @@ const FoodDetails = () => {
                 </h1>
 
                 <h5 className="quantity">
-                  <span onClick={()=>handleMinus(food)} className="minus">
+                  <span onClick={() => handleMinus(food)} className="minus">
                     <i className="fas fa-minus"></i>
                   </span>
                   <span className="digit">{quantity}</span>
-                  <span onClick={()=>handlePlus(food)} className="plus">
+                  <span onClick={() => handlePlus(food)} className="plus">
                     <i className="fas fa-plus"></i>
                   </span>
                 </h5>
@@ -100,21 +118,24 @@ const FoodDetails = () => {
               <button className="btn-red mt-4" onClick={handleAddBtn}>
                 <i className="fas fa-cart-arrow-down"></i> Add
               </button>
+              <button onClick={()=> history.goBack()} className="btn  ms-4">Back</button>
 
-              <div className="small-img mt-5 d-none d-lg-block">
+              <div className="small-img  mt-5 d-none d-lg-flex">
                 <img
                   onClick={() => handleImgDetails(foods[imgIndex])}
                   className="img-fluid me-4"
                   src={foods[imgIndex]?.img}
+                  style={{ width: "180px" }}
                   alt=""
                 />
                 <img
                   onClick={() => handleImgDetails(foods[imgIndex + 1])}
                   className="img-fluid"
+                  style={{ width: "180px" }}
                   src={foods[imgIndex + 1]?.img}
                   alt=""
                 />
-                <div className="d-flex justify-content-center align-items-center ">
+                <div className="d-flex  justify-content-center align-items-center ">
                   <i
                     onClick={handleImgIndex}
                     className="fas fa-2x  fa-chevron-right right-arrow"
@@ -124,10 +145,12 @@ const FoodDetails = () => {
             </div>
           </Col>
           <Col>
-            <img className="img-fluid" src={food?.img} alt="" />
+            <div>
+              <img className="img-fluid" src={food?.img} alt="" />
+            </div>
           </Col>
         </Row>
-         <br />
+        <br />
         <NavLink as={NavLink} className="checkout-btn my-4" to="/home/checkout">
           Checkout Your Food
         </NavLink>

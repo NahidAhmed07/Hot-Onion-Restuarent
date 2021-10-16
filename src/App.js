@@ -11,8 +11,10 @@ import NotFound from './components/NotFound/NotFound';
 import Menubar from './components/Shared/Menubar/Menubar';
 import AuthProvider from './context/AuthProvider';
 import PrivateRoute from './components/Login/PrivateRoute/PrivateRoute';
+import { ClickBtn } from './utilities/utilities';
 
 function App() {
+  ClickBtn()
   return (
     <div className="App">
       <AuthProvider>

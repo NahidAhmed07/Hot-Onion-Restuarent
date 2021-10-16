@@ -16,6 +16,7 @@ const Categories = () => {
       <div className="my-5">
         <div>
           <NavLink
+            id="breakFast"
             to="/home/breakfast"
             activeClassName="cat-btn-active"
             className="cat-btn"
