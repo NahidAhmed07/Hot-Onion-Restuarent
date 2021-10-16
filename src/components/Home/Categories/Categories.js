@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink, Switch, Route } from "react-router-dom";
+import PrivateRoute from "../../Login/PrivateRoute/PrivateRoute";
 import Breakfast from "../Breakfast/Breakfast";
 import Checkout from "../Checkout/Checkout";
 import Dinner from "../Dinner/Dinner";
@@ -47,9 +48,9 @@ const Categories = () => {
         <Route path="/home/dinner">
           <Dinner></Dinner>
         </Route>
-        <Route path="/home/checkout">
+        <PrivateRoute path="/home/checkout">
           <Checkout></Checkout>
-        </Route>
+        </PrivateRoute>
         <Route path="/home/food/:foodCat/:foodId">
           <FoodDetails></FoodDetails>
         </Route>

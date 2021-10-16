@@ -64,7 +64,7 @@ const FoodDetails = () => {
   
 
   return (
-    <div>
+    <div className='container-fluid'>
       <Container className="my-5">
         <Row xs={1} md={2} className="g-5">
           <Col>
@@ -101,7 +101,7 @@ const FoodDetails = () => {
                 <i className="fas fa-cart-arrow-down"></i> Add
               </button>
 
-              <div className="small-img mt-5">
+              <div className="small-img mt-5 d-none d-lg-block">
                 <img
                   onClick={() => handleImgDetails(foods[imgIndex])}
                   className="img-fluid me-4"
@@ -135,3 +135,5 @@ const FoodDetails = () => {
     </div>
   );
 };
+
+export default FoodDetails;

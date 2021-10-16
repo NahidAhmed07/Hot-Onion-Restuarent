@@ -17,7 +17,7 @@ const Breakfast = () => {
   return (
     <>
       <Container>
-        <Row xs={1} md={2} lg={3} className="g-5">
+        <Row xs={1} md={2} lg={3} className="g-3 g-lg-5">
           {Foods.map((food) => (
             <FoodItem food={food} key={food.id}></FoodItem>
           ))}
